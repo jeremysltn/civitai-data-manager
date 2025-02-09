@@ -60,7 +60,7 @@ def generate_global_summary(output_dir, VERSION):
                     
                 models_by_type[model_type].append({
                     # Add model data
-                    'name': model_data.get('name', 'Unknown'),
+                    'name': model_data.get('name') or 'Unknown',
                     'creator': model_data.get('creator', {}).get('username', 'Unknown'),
                     'base_name': base_name,
                     'html_file': f"{base_name}.html",
@@ -105,7 +105,7 @@ def generate_global_summary(output_dir, VERSION):
             if model_type != 'Missing from Civitai':
                 models_by_type[model_type].sort(key=lambda x: x['downloads'], reverse=True)
             else:
-                models_by_type[model_type].sort(key=lambda x: x['name'].lower())
+                models_by_type[model_type].sort(key=lambda x: (x['name'] or '').lower())
 
         # Create sections HTML for each type
         type_sections = ''
@@ -153,8 +153,8 @@ def generate_global_summary(output_dir, VERSION):
                 card_html = f"""
                     <div class="model-card{' missing' if model.get('missing') else ''}{' processed' if model.get('has_html') else ''}" 
                     data-tags="{','.join(model['tags']).lower()}"
-                    data-name="{model['name'].lower()}"
-                    data-creator="{model['creator'].lower()}"
+                    data-name="{(model['name'] or '').lower()}"
+                    data-creator="{(model['creator'] or '').lower()}"
                     data-downloads="{model['downloads']}"
                     data-filename="{model['base_name'].lower()}"
                     data-raw-size="{model.get('file_size', 0)}"
@@ -402,12 +402,12 @@ def generate_global_summary(output_dir, VERSION):
                             bVal = parseInt(b.dataset.downloads) || 0;
                             break;
                         case 'name':
-                            aVal = a.dataset.name;
-                            bVal = b.dataset.name;
+                            aVal = a.dataset.name || '';
+                            bVal = b.dataset.name || '';
                             break;
                         case 'creator':
-                            aVal = a.dataset.creator;
-                            bVal = b.dataset.creator;
+                            aVal = a.dataset.creator || '';
+                            bVal = b.dataset.creator || '';
                             break;
                         case 'size':
                             aVal = parseFloat(a.dataset.rawSize) || 0;
