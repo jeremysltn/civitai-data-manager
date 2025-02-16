@@ -31,8 +31,12 @@ git clone https://github.com/jeremysltn/civitai-data-manager.git
 cd civitai-data-manager
 ```
 
-3. Install required dependencies (only 1):
+3. Install dependencies:
 ```bash
+# Using Poetry (recommended):
+poetry install
+
+# Using pip:
 pip install -r requirements.txt
 ```
 
