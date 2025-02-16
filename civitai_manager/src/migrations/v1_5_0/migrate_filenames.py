@@ -1,7 +1,7 @@
 from pathlib import Path
 import argparse
 import json
-from src.civitai_manager.utils.string_utils import sanitize_filename
+from civitai_manager.src.utils.string_utils import sanitize_filename
 
 def update_processed_files(output_dir: Path, dry_run: bool = True):
     """
