@@ -36,14 +36,9 @@ cd civitai-data-manager
 pip install -r requirements.txt
 ```
 
-4. Make the script executable (Unix-like systems only):
+4. To verify the installation, try running the script with the help flag:
 ```bash
-chmod +x main.py
-```
-
-5. To verify the installation, try running the script with the help flag:
-```bash
-python main.py --help
+python -m civitai_manager.main --help
 ```
 
 You should see the available command-line options displayed.
@@ -71,22 +66,22 @@ Examples of configuration are located in the `config_examples` directory.
 
 - The first time, edit the `config.json` file and simply run:
   ```bash
-  python main.py
+  python -m civitai_manager.main
 - To update with the data from newly added models, run periodically to catch updates with the update config (file present in `/config_examples/config.update.json`)
 
 ### Command Options
 #### Input and Output:
 - `--single`: Process a single model file:
   ```bash
-  python main.py --single "path/to/model.safetensors"
+  python -m civitai_manager.main --single "path/to/model.safetensors"
   ```
 - `--all`: Process all models in a directory:
   ```bash
-  python main.py --all "path/to/model/directory"
+  python -m civitai_manager.main --all "path/to/model/directory"
   ```
 - `--output`: Set an output directory:
   ```bash
-  python main.py --all "path/to/models" --output "path/to/output"
+  python -m civitai_manager.main --all "path/to/models" --output "path/to/output"
   ```
 
 #### Image Options:
@@ -114,12 +109,12 @@ For better organization, run separately for each model category:
 
 ```bash
 # For checkpoints
-python main.py --all "path/to/checkpoints/sdxl" --output "path/to/backup/checkpoints/sdxl" --noconfig
-python main.py --all "path/to/checkpoints/flux" --output "path/to/backup/checkpoints/flux" --noconfig
+python -m civitai_manager.main --all "path/to/checkpoints/sdxl" --output "path/to/backup/checkpoints/sdxl" --noconfig
+python -m civitai_manager.main --all "path/to/checkpoints/flux" --output "path/to/backup/checkpoints/flux" --noconfig
 
 # For Loras
-python main.py --all "path/to/loras/sdxl" --output "path/to/backup/loras/sdxl" --noconfig
-python main.py --all "path/to/loras/flux" --output "path/to/backup/loras/flux" --noconfig
+python -m civitai_manager.main --all "path/to/loras/sdxl" --output "path/to/backup/loras/sdxl" --noconfig
+python -m civitai_manager.main --all "path/to/loras/flux" --output "path/to/backup/loras/flux" --noconfig
 ```
 
 ### Best Practices
@@ -213,6 +208,8 @@ This tool stands out for its simplicity and lightweight design. It requires no c
 - **Code refactor**: Clean and move some functions to utils file.
 
 ## 📜 Changelog
+
+- **1.6.0** - refactor: Reorganize project structure to follow Python conventions
 
 - **1.5.5** - fix: Handle None values in global summary generation
 - **1.5.4** - feat: Persist sort preference in localStorage
