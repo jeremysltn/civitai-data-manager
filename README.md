@@ -198,55 +198,10 @@ If the Lora model has been deleted from Civitai, the script can still generate a
 
 This tool stands out for its simplicity and lightweight design. It requires no configuration and operates independently of any WebUI (such as A1111, ComfyUI, etc.). With a single command, it scans your models directory, gathers informations on Civitai, and generates an interactive model browser (`index.html`).
 
-## 🛣️ Roadmap
+## 📘 Additional Information
 
 ### Features
-- **🔥 Manual model page**: Add a way for users to add manually (via json file and directory scan) - useful if a model was never available on Civitai but downloaded elsewhere.
-- **Handling multiple config.json**: Best way to be 100% efficient for testing and multiple use cases.
-- **File Sorting**: Add option to select the default type of sorting in the generated browser (in the future config file).
-- **Dark Mode**: Integrate dark mode in the templates.
-
-### Misc.
-- **Implement Logging**: Add better logging functionality to improve tracking and debugging.
-- **Add Progress Tracking**: Integrate a progress bar to display the status of file processing.
-- **Code refactor**: Clean and move some functions to utils file.
-
-## 📜 Changelog
-
-- **1.6.3** - chore: Migrate project to Poetry for dependency management
-- **1.6.2** - refactor: Centralize version management in package root
-- **1.6.1** - fix: Update sanitize_filename for new project structure
-- **1.6.0** - refactor: Reorganize project structure to follow Python conventions
-
-- **1.5.5** - fix: Handle None values in global summary generation
-- **1.5.4** - feat: Persist sort preference in localStorage
-- **1.5.3** - feat: Add file size display and sorting
-- **1.5.2** - feat: Add migration script for filename sanitization (fix breaking changes from v1.5.0)
-- **1.5.1** - 🔥 feat: Add sorting options to browser page
-- **1.5.0** - fix: Improve filename handling
-
-- **1.4.4** - fix: Prioritize config.json over CLI arguments
-- **1.4.3** - fix: Path handling in main function (fixed TypeError when processing command line arguments)
-- **1.4.2** - feat: Add --noconfig flag to override config file
-- **1.4.1** - fix: Fixed event listener persistence for arrow key navigation between images
-- **1.4.0** - 🔥 feat: add JSON configuration file support
-
-- **1.3.6** - feat: Add keyboard navigation for preview images
-- **1.3.5** - refactor: Decreasing the default delay between models (from 6-12 to 3-6 seconds)
-- **1.3.4** - fix: Improve preview image metadata handling
-- **1.3.3** - refactor: Increase model's thumbnail size in the model browser
-- **1.3.2** - fix: Handle duplicate file message in clean operation
-- **1.3.1** - fix: The scale effect in the model's gallery now affects videos
-- **1.3.0** - 🔥 feat: Enhance image modal with detailed metadata display (seed, prompt used etc.)
-
-- **1.2.5** - 🔥 feat: Enhance model browser search functionality
-- **1.2.4** - feat: Enhance --clean to detect and handle duplicate models
-- **1.2.3** - feat: Add toggleable cover images to model browser
-- **1.2.2** - feat: Add --skipmissing option for optimizing model checks
-- **1.2.1** - fix: Prevent missing models from appearing in multiple sections
-- **1.2.0** - feat: Add video preview support for model galleries
-
-## 📘 Additional Information
+[Changelog](CHANGELOG.md) / [Roadmap](ROADMAP.md)
 
 ### Contributing
 Feel free to open issues or submit pull requests with improvements.
