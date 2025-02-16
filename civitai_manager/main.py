@@ -4,8 +4,8 @@ import os
 import sys
 import argparse
 from pathlib import Path
+from civitai_manager import __version__
 from civitai_manager.src.core.metadata_manager import (
-    VERSION,
     process_single_file,
     process_directory,
     clean_output_directory,
@@ -143,7 +143,7 @@ def main():
                             skip_missing=config.get('skipmissing', False))
         
     if ('single' in config or 'all' in config):
-        generate_global_summary(base_output_path, VERSION)
+        generate_global_summary(base_output_path)
 
 if __name__ == "__main__":
     main()

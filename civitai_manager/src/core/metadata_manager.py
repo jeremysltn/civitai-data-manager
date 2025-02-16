@@ -8,7 +8,7 @@ from datetime import datetime
 import time
 import random
 
-    
+from civitai_manager import __version__
 from ..utils.file_tracker import ProcessedFilesManager
 from ..utils.string_utils import sanitize_filename
 from ..utils.html_generators.model_page import generate_html_summary
@@ -19,8 +19,6 @@ except ImportError:
     print("Error: 'requests' module not found. Please install it using:")
     print("pip install requests")
     sys.exit(1)
-
-VERSION = "1.6.1"
 
 def get_output_path(clean=False):
     """
@@ -688,7 +686,7 @@ def process_single_file(safetensors_path, base_output_path, download_all_images=
             return False
             
         # Generate HTML only
-        generate_html_summary(model_output_dir, safetensors_path, VERSION)
+        generate_html_summary(model_output_dir, safetensors_path)
         return True
     
     if only_update:
@@ -726,7 +724,7 @@ def process_single_file(safetensors_path, base_output_path, download_all_images=
                                     safetensors_path, download_all_images, skip_images)
         if model_id:
             fetch_model_details(model_id, model_output_dir, safetensors_path)
-            generate_html_summary(model_output_dir, safetensors_path, VERSION)
+            generate_html_summary(model_output_dir, safetensors_path)
             return True
             
     return False
