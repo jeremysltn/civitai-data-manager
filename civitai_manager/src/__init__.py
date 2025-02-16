@@ -1,1 +1,1 @@
-from .core.metadata_manager import VERSION
+from civitai_manager import __version__

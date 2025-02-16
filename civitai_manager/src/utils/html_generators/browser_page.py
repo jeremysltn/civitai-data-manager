@@ -3,14 +3,14 @@ import html
 from ..string_utils import sanitize_filename
 import json
 from datetime import datetime
+from civitai_manager import __version__
 
-def generate_global_summary(output_dir, VERSION):
+def generate_global_summary(output_dir):
     """
     Generate an HTML summary of all models in the output directory
     
     Args:
         output_dir (Path): Directory containing the JSON files
-        VERSION (str): Version of the script
     """
     try:
         # Find all model.json files
@@ -371,7 +371,7 @@ def generate_global_summary(output_dir, VERSION):
     </div>
 
     <div class="footer">
-        Civitai Data Manager. Version {VERSION}. <a href="https://github.com/jeremysltn/civitai-data-manager">GitHub</a>
+        Civitai Data Manager. Version {__version__}. <a href="https://github.com/jeremysltn/civitai-data-manager">GitHub</a>
         <br />
         Generated: {datetime.now().isoformat()}
     </div>

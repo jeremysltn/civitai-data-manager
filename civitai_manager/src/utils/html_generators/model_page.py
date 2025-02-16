@@ -2,15 +2,15 @@ import json
 import html
 from ..string_utils import sanitize_filename
 from datetime import datetime
+from civitai_manager import __version__
 
-def generate_html_summary(output_dir, safetensors_path, VERSION):
+def generate_html_summary(output_dir, safetensors_path):
     """
     Generate an HTML summary of the model information
     
     Args:
         output_dir (Path): Directory containing the JSON files
         safetensors_path (Path): Path to the safetensors file
-        VERSION (str): Version of the script
     """
     try:
         base_name = sanitize_filename(safetensors_path.stem)
@@ -495,7 +495,7 @@ def generate_html_summary(output_dir, safetensors_path, VERSION):
     </div>
     
     <div class="footer">
-        Civitai Data Manager. Version {VERSION}. <a href="https://github.com/jeremysltn/civitai-data-manager">GitHub</a>
+        Civitai Data Manager. Version {__version__}. <a href="https://github.com/jeremysltn/civitai-data-manager">GitHub</a>
         <br />
         Generated: {datetime.now().isoformat()}
     </div>
