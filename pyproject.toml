@@ -1,0 +1,21 @@
+[project]
+name = "civitai-data-manager"
+version = "1.6.2"
+description = "A lightweight tool to locally manage, back up, and organize SafeTensors model metadata from Civitai."
+authors = [
+    {name = "Jeremy",email = "185207395+jeremysltn@users.noreply.github.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests (>=2.32.3,<3.0.0)"
+]
+
+[tool.poetry]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

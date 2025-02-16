@@ -209,6 +209,7 @@ This tool stands out for its simplicity and lightweight design. It requires no c
 
 ## 📜 Changelog
 
+- **1.6.3** - chore: Migrate project to Poetry for dependency management
 - **1.6.2** - refactor: Centralize version management in package root
 - **1.6.1** - fix: Update sanitize_filename for new project structure
 - **1.6.0** - refactor: Reorganize project structure to follow Python conventions
