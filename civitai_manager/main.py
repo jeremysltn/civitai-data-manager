@@ -4,7 +4,7 @@ import os
 import sys
 import argparse
 from pathlib import Path
-from src.civitai_manager.core.metadata_manager import (
+from civitai_manager.src.core.metadata_manager import (
     VERSION,
     process_single_file,
     process_directory,
@@ -12,8 +12,8 @@ from src.civitai_manager.core.metadata_manager import (
     generate_image_json_files,
     get_output_path
 )
-from src.civitai_manager.utils.html_generators.browser_page import generate_global_summary
-from src.civitai_manager.utils.config import load_config, ConfigValidationError
+from civitai_manager.src.utils.html_generators.browser_page import generate_global_summary
+from civitai_manager.src.utils.config import load_config, ConfigValidationError
 
 def parse_cli_args(require_args=False):
     """Parse and validate command line arguments."""
