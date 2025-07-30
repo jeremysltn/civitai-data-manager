@@ -33,9 +33,19 @@ class ProcessedFilesManager:
         if str(file_path) not in self.processed_files['files']:
             self.processed_files['files'].append(str(file_path))
 
+    def _find_safetensors_files(self, directory_path):
+        """Find .safetensors files recursively, following symbolic links"""
+        import os
+        safetensors_files = []
+        for root, dirs, files in os.walk(directory_path, followlinks=True):
+            for file in files:
+                if file.endswith('.safetensors'):
+                    safetensors_files.append(Path(root) / file)
+        return safetensors_files
+
     def get_new_files(self, directory_path):
         """Get list of new safetensors files that haven't been processed"""
-        all_files = list(Path(directory_path).glob('**/*.safetensors'))
+        all_files = self._find_safetensors_files(directory_path)
         return [f for f in all_files if not self.is_file_processed(f)]
     
     def update_timestamp(self):

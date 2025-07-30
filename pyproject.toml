@@ -1,6 +1,6 @@
 [project]
 name = "civitai-data-manager"
-version = "1.6.2"
+version = "1.6.5"
 description = "A lightweight tool to locally manage, back up, and organize SafeTensors model metadata from Civitai."
 authors = [
     {name = "Jeremy",email = "185207395+jeremysltn@users.noreply.github.com"}

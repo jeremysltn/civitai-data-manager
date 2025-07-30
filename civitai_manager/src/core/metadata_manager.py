@@ -20,6 +20,15 @@ except ImportError:
     print("pip install requests")
     sys.exit(1)
 
+def find_safetensors_files(directory_path):
+    """Find .safetensors files recursively, following symbolic links"""
+    safetensors_files = []
+    for root, dirs, files in os.walk(directory_path, followlinks=True):
+        for file in files:
+            if file.endswith('.safetensors'):
+                safetensors_files.append(Path(root) / file)
+    return safetensors_files
+
 def get_output_path(clean=False):
     """
     Get output path from user and create necessary directories.
@@ -364,7 +373,7 @@ def find_duplicate_models(directory_path, base_output_path):
                     
                 # Find corresponding safetensors file
                 safetensors_file = None
-                for file in Path(directory_path).glob('**/*.safetensors'):
+                for file in find_safetensors_files(directory_path):
                     if file.stem == model_dir.name:
                         safetensors_file = file
                         break
@@ -443,7 +452,7 @@ def clean_output_directory(directory_path, base_output_path):
     # Get list of all current safetensors files (without extension)
     existing_models = {
         Path(file).stem
-        for file in Path(directory_path).glob('**/*.safetensors')
+        for file in find_safetensors_files(directory_path)
     }
     
     # Check each directory in output
@@ -784,14 +793,14 @@ def process_directory(directory_path, base_output_path, no_timeout=False,
     elif only_update:
         # Only get previously processed files
         safetensors_files = []
-        all_files = list(directory_path.glob('**/*.safetensors'))
+        all_files = find_safetensors_files(directory_path)
         for file_path in all_files:
             hash_file = Path(base_output_path) / file_path.stem / f"{file_path.stem}_hash.json"
             if hash_file.exists():
                 safetensors_files.append(file_path)
         print(f"\nFound {len(safetensors_files)} previously processed files")
     else:
-        safetensors_files = list(directory_path.glob('**/*.safetensors'))
+        safetensors_files = find_safetensors_files(directory_path)
         if not safetensors_files:
             print(f"No .safetensors files found in {directory_path}")
             return False

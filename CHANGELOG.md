@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.6.5] - 2025-07-30
+### Fix
+- Add symbolic link support for recursive .safetensors file discovery.
+
+## [1.6.4] - 2025-07-30
+### Fix
+- Resolve f-string compatibility issues for Python < 3.12.
+
 ## [1.6.3] - 2025-02-16
 ### Chore
 - Migrate project to Poetry for dependency management.
