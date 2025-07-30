@@ -216,7 +216,7 @@ def download_preview_image(image_url, output_dir, base_name, index=None, is_vide
             ext = '.mp4' if is_video else Path(url_parts[-1]).suffix
             # Add index to sanitized filename if provided
             sanitized_base = sanitize_filename(base_name)
-            image_filename = f"{sanitized_base}_preview{f'_{index}' if index is not None else ''}{ext}"
+            image_filename = f'{sanitized_base}_preview{f"_{index}" if index is not None else ""}{ext}'
             image_path = output_dir / image_filename
             
             # Download and save the image
@@ -422,12 +422,12 @@ def clean_output_directory(directory_path, base_output_path):
                 
                 # Write to duplicates file
                 f.write(f"Hash: {hash_value}\n")
-                f.write(f"Kept: {kept_model['safetensors_file']}\n")
+                f.write(f'Kept: {kept_model["safetensors_file"]}\n')
                 f.write("Removed:\n")
                 
                 for model in removed_models:
-                    f.write(f"  - {model['safetensors_file']}\n")
-                    print(f"Removing duplicate model: {model['model_dir'].name}")
+                    f.write(f'  - {model["safetensors_file"]}\n')
+                    print(f'Removing duplicate model: {model["model_dir"].name}')
                     try:
                         shutil.rmtree(model['model_dir'])
                     except Exception as e:

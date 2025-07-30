@@ -139,7 +139,7 @@ def generate_global_summary(output_dir):
                 
                 filesize_section = ''
                 if model.get('file_size'):
-                    filesize_section = f'<div class="file-size">Size: {model.get('file_size', 0)/1024:.2f} MB</div>'
+                    filesize_section = f'<div class="file-size">Size: {model.get("file_size", 0)/1024:.2f} MB</div>'
                 
                 trained_words_section = ''
                 if model.get('trainedWords'):
